@@ -1,0 +1,60 @@
+### ------------------ GET all books ------------------
+GET http://localhost:3000/books
+Accept: application/json
+
+### ------------------ GET one book ------------------
+# Use an existing ISBN from the GET all books response
+GET http://localhost:3000/books/isbn/9780452284234
+Accept: application/json
+###
+
+GET http://localhost:3000/books/author/danny
+Accept: application/json
+###
+GET http://localhost:3000/books/title/great
+Accept: application/json
+###
+GET http://localhost:3000/books/review/1
+Accept: application/json
+
+###
+POST http://localhost:3000/books/register
+Content-Type: application/json
+
+{
+  "name": "danny2",
+  "password": "123",
+  "email": "danny@hotmail.com",
+  "loggedin":true
+}
+
+
+###
+
+GET http://localhost:3000/books/login/danny@hotmail.com/123
+Content-Type: application/json
+###
+
+POST http://localhost:3000/books/review/2/newtext2
+Content-Type: application/json
+
+###
+DELETE http://localhost:3000/books/delete/1
+Accept: application/json
+###
+PUT http://localhost:3000/books/update/2
+Content-Type: application/json
+
+{
+    "id": 2,
+    "isbn": "9780452284234",
+    "title": "1984",
+    "author": "George Orwell",
+    "reviews": {
+        "mark89": "Chilling and thought-provoking.",
+        "sara_k": "A dystopian master"
+    }
+}
+
+###
+POST   http://localhost:3000/books/logout
